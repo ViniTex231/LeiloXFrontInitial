@@ -1,0 +1,81 @@
+.navbar {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px; /* Reduzido o padding lateral */
+    font-family: Arial, sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+  }
+  
+  .left-section {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Aumentado o espaço entre a logo e os links */
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px; /* Adicionado para melhor legibilidade */
+  }
+  
+  .gray {
+    color: gray;
+  }
+  
+  .gray-light {
+    color: lightgray;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 50px; /* Aumentado o espaço entre os links */
+    align-items: center;
+  }
+  
+  .nav-links a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px; /* Ajustado o tamanho da fonte */
+    letter-spacing: 0.5px; /* Adicionado para melhor legibilidade */
+  }
+  
+  .nav-links a:hover {
+    color: gray;
+  }
+  
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Ajustado o espaço entre SAIR e o nome */
+  }
+  
+  .logout {
+    text-decoration: none; /* Removido o sublinhado */
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  
+  .logout:hover {
+    color: gray;
+  }
+  
+  .username {
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  
+  
