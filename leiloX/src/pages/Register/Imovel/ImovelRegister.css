@@ -31,3 +31,11 @@
     display: flex;
     gap: 43px;
 }
+
+.error-message {
+    color: #8A2323;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    margin-top: 10px;
+    text-align: center;
+}

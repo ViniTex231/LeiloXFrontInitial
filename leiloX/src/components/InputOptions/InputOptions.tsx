@@ -1,4 +1,4 @@
-import type { ChangeEvent } from "react";
+import type { ChangeEvent, CSSProperties } from "react";
 import "./InputOptions.css"
 
 interface InputOptionsProps {
@@ -6,9 +6,10 @@ interface InputOptionsProps {
     value: string
     onChange: (value: string) => void
     options: string[]
+    style?: CSSProperties
 }
 
-export function InputOptions({ label, value, onChange, options }: InputOptionsProps) {
+export function InputOptions({ label, value, onChange, options, style }: InputOptionsProps) {
     const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
         onChange(e.target.value)
     }
@@ -16,7 +17,7 @@ export function InputOptions({ label, value, onChange, options }: InputOptionsPr
     return (
         <div className="input-container">
             <label className="input-label">{label}</label>
-            <select className="input-field" value={value} onChange={handleChange}>
+            <select className="input-field" value={value} onChange={handleChange} style={style}>
                 {options.map((option, index) => (
                     <option key={index} value={option}>
                         {option}
