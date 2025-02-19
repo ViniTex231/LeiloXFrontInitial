@@ -6,7 +6,9 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="left-section">
         <div className="logo">
-          <img src={logoFigma} alt="LeiloX Logo" className="logo-image" />
+          <a href="/">
+            <img src={logoFigma} alt="LeiloX Logo" className="logo-image" />
+          </a>
         </div>
         <div className="nav-links">
           <a href="#">INICIO</a>
