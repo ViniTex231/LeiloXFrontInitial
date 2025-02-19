@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 .navbar {
     background-color: black;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 32px; /* Reduzido o padding lateral */
-    font-family: Arial, sans-serif;
+    padding: 0 91px; /* Reduzido o padding lateral */
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
     position: fixed;
     top: 0;
     left: 0;
@@ -17,7 +21,7 @@
   .left-section {
     display: flex;
     align-items: center;
-    gap: 40px; /* Aumentado o espaço entre a logo e os links */
+    gap: 79px; /* Aumentado o espaço entre a logo e os links */
   }
   
   .logo {
@@ -26,6 +30,12 @@
     display: flex;
     align-items: center;
     letter-spacing: 1px; /* Adicionado para melhor legibilidade */
+  }
+
+  .logo-image {
+    max-height: 40px;
+    width: 125px;
+    height: 19px;
   }
   
   .gray {
@@ -38,7 +48,7 @@
   
   .nav-links {
     display: flex;
-    gap: 50px; /* Aumentado o espaço entre os links */
+    gap: 58px; /* Aumentado o espaço entre os links */
     align-items: center;
   }
   
@@ -57,7 +67,7 @@
   .user {
     display: flex;
     align-items: center;
-    gap: 16px; /* Ajustado o espaço entre SAIR e o nome */
+    gap: 42px; /* Ajustado o espaço entre SAIR e o nome */
   }
   
   .logout {
