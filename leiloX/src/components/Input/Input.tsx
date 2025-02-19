@@ -1,39 +1,23 @@
-import React from "react";
-import "./Input.css";
+import type { ChangeEvent } from "react"
+import "./Input.css"
 
-interface BasicInputProps {
-  inputStyle: string;
-  inputType: string;
-  inputPlaceholder: string;
-  register: any;
-  inputName: string;
-  isRequired: boolean;
-  errors: any;
-  isActive?: boolean;
+interface InputFieldProps {
+  label: string
+  value: string
+  onChange: (value: string) => void
+  placeholder?: string
 }
 
-const Input: React.FC<BasicInputProps> = ({
-  inputStyle,
-  inputType,
-  inputPlaceholder,
-  register,
-  inputName,
-  isRequired,
-  errors,
-  isActive = true,
-}) => {
+export function InputField({ label, value, onChange, placeholder }: InputFieldProps) {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    onChange(e.target.value)
+  }
+
   return (
     <div className="input-container">
-      <input
-        type={inputType}
-        className={`input-field ${inputStyle}`}
-        placeholder={inputPlaceholder}
-        {...register(inputName, { required: isRequired })}
-        disabled={!isActive}
-      />
-      {errors[inputName] && <span className="error-message">Este campo é obrigatório</span>}
+      <label className="input-label">{label}</label>
+      <input type="text" className="input-field" value={value} onChange={handleChange} placeholder={placeholder} />
     </div>
-  );
-};
+  )
+}
 
-export default Input;

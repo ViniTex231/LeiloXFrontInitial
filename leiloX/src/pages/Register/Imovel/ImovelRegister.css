@@ -17,3 +17,17 @@
     font-family: 'Inter', sans-serif;
     margin: 0;
 }
+
+.form-container {
+    position: absolute;
+    top: calc(150px + 100px);
+    left: 91px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.form {
+    display: flex;
+    gap: 43px;
+}
