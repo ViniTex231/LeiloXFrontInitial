@@ -13,6 +13,7 @@ const ImovelRegister = () => {
     const [matricula, setMatricula] = useState("")
     const [valor, setValor] = useState("")
     const [estadoCivil, setEstadoCivil] = useState("")
+    const [termosAceitos, setTermosAceitos] = useState(false)
 
     const [errors, setErrors] = useState({
         nomeCompleto: false,
@@ -22,7 +23,8 @@ const ImovelRegister = () => {
         endereco: false,
         matricula: false,
         valor: false,
-        estadoCivil: false
+        estadoCivil: false,
+        termosAceitos: false,
     })
 
     const opcoesEstadoCivil = [
@@ -41,7 +43,8 @@ const ImovelRegister = () => {
             endereco: !endereco,
             matricula: !matricula,
             valor: !valor,
-            estadoCivil: !estadoCivil
+            estadoCivil: !estadoCivil,
+            termosAceitos: !termosAceitos,
         }
         setErrors(newErrors)
         return !Object.values(newErrors).includes(true)
@@ -101,11 +104,11 @@ const ImovelRegister = () => {
                     />
                 </div>
                 <div className="form">
-                    <InputOptions
+                    <InputField
                         label="Estado Civil"
                         value={estadoCivil}
                         onChange={setEstadoCivil}
-                        options={opcoesEstadoCivil}
+                        placeholder="Solteiro"
                         style={{ borderColor: errors.estadoCivil ? '#ff2c2c' : '' }}
                     />
                     <InputField
@@ -133,8 +136,29 @@ const ImovelRegister = () => {
                     />
                 </div>
                 {Object.values(errors).includes(true) && (
-                    <div className="error-message">Todos os campos devem ser preenchidos corretamente</div>
+                    <div className="error-message">
+                        {errors.termosAceitos ? (
+                            <span className="error-message">
+                                Todos os campos devem ser preenchidos corretamente
+                            </span>
+                        ) : (
+                            'Todos os campos devem ser preenchidos corretamente'
+                        )}
+                    </div>
                 )}
+
+                <div className="checkbox-container">
+                    <input
+                        type="checkbox"
+                        id="termos"
+                        checked={termosAceitos}
+                        onChange={() => setTermosAceitos(!termosAceitos)}
+                    />
+                    <label htmlFor="termos" className={errors.termosAceitos ? 'error-label' : ''}>
+                        Concordo com o termo de veracidade
+                    </label>
+                </div>
+
                 <div className="button">
                     <Button text="Confirmar Dados" onClick={handleSubmit} />
                 </div>
