@@ -1,3 +1,19 @@
-.background-container-main{
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.background-container-main {
     color: black;
+}
+
+.header {
+    position: absolute;
+    top: 150px;
+    left: 91px;
+}
+
+.header-text {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
 }
