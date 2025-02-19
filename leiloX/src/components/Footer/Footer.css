@@ -1,0 +1,44 @@
+.footer {
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 15px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.footer-left {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    color: #B4B3B3;
+}
+
+.footer-left p {
+    margin: 0;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.footer-right {
+    display: flex;
+    gap: 41px;
+}
+
+.footer-right a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.footer-right a:hover {
+    text-decoration: underline;
+}
+
