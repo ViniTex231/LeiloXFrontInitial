@@ -1,8 +1,8 @@
 import "./ImovelRegister.css"
 import { InputField } from "../../../components/Input/Input"
-import { PDFViewer } from "../../../components/PDFViewer/PDFViewer"
 import { useState } from "react"
 import Button from "../../../components/ConfirmButton/ConfirmButton"
+import { createImovel } from "../../../services/apiService"
 
 const ImovelRegister = () => {
     const [nomeCompleto, setNomeCompleto] = useState("")
@@ -14,6 +14,9 @@ const ImovelRegister = () => {
     const [valor, setValor] = useState("")
     const [estadoCivil, setEstadoCivil] = useState("")
     const [termosAceitos, setTermosAceitos] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const [successMessage, setSuccessMessage] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
 
     const [errors, setErrors] = useState({
         nomeCompleto: false,
@@ -43,18 +46,39 @@ const ImovelRegister = () => {
         return !Object.values(newErrors).includes(true)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (validateForm()) {
-            console.log("Cadastro do imóvel:", {
-                nomeCompleto,
-                cpf,
-                nomeSegundo,
-                cpfSegundo,
-                estadoCivil,
+            setLoading(true);
+            setSuccessMessage("")
+            setErrorMessage("")
+
+            const imovelData = {
+                nome_proprietario: nomeCompleto,
+                cpf_proprietario: Number(cpf.replace(/\D/g, "")),
+                estado_civil: estadoCivil,
                 endereco,
-                matricula,
-                valor
-            })
+                matricula_municipal: Number(matricula),
+                valor: Number(valor.replace(/\D/g, ""))
+            }
+
+            try {
+                await createImovel(imovelData)
+                setSuccessMessage("Imovel cadastrado com sucesso")
+                setNomeCompleto("")
+                setCpf("")
+                setNomeSegundo("")
+                setCpfSegundo("")
+                setEndereco("")
+                setMatricula("")
+                setValor("")
+                setEstadoCivil("")
+                setTermosAceitos(false)
+            } catch (error) {
+                setErrorMessage("Erro ao cadastrar imovel. Tente novamente")
+                console.error("Erro ao cadastrar imovel:", error)
+            } finally {
+                setLoading(false)
+            }
         }
     }
 
@@ -152,8 +176,11 @@ const ImovelRegister = () => {
                     </label>
                 </div>
 
+                {successMessage && <p className="successMessage">{successMessage}</p>}
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
+
                 <div className="button">
-                    <Button text="Confirmar Dados" onClick={handleSubmit} />
+                    <Button text={loading ? "Enviando..." : "Confirmar Dados"} onClick={handleSubmit} disabled={loading} />
                 </div>
             </div>
 
