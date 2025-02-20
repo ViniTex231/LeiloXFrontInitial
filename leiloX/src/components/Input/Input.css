@@ -34,3 +34,11 @@
   outline: none;
   border-color: rgba(255, 255, 255, 0.4);
 }
+
+.input-field:disabled {
+  background-color: #2a2a2a;
+  border-color: #b4b3b3;
+  color: #7f7f7f;
+  opacity: 0.6;
+  cursor: not-allowed;
+}

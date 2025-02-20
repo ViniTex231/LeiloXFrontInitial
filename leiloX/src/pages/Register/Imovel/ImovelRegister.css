@@ -23,6 +23,13 @@
     top: calc(150px + 100px);
     left: 91px;
     display: flex;
+    flex-direction: row;
+    gap: 500px;
+    align-items: flex-start;
+}
+
+.inputs-wrapper {
+    display: flex;
     flex-direction: column;
     gap: 32px;
 }
@@ -52,3 +59,10 @@
 .error-label {
     color: #8A2323;
 }
+
+.pdf-upload-container {
+    min-width: 300px;
+    align-items: center;
+    justify-content: center;
+}
+
