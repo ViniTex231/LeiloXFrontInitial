@@ -1,6 +1,6 @@
 import "./ImovelRegister.css"
 import { InputField } from "../../../components/Input/Input"
-import { InputOptions } from "../../../components/InputOptions/InputOptions"
+import { PDFViewer } from "../../../components/PDFViewer/PDFViewer"
 import { useState } from "react"
 import Button from "../../../components/ConfirmButton/ConfirmButton"
 
@@ -26,13 +26,6 @@ const ImovelRegister = () => {
         estadoCivil: false,
         termosAceitos: false,
     })
-
-    const opcoesEstadoCivil = [
-        "Solteiro",
-        "Casado",
-        "Divorciado",
-        "Viúvo"
-    ]
 
     const validateForm = () => {
         const newErrors = {
@@ -163,6 +156,7 @@ const ImovelRegister = () => {
                     <Button text="Confirmar Dados" onClick={handleSubmit} />
                 </div>
             </div>
+
         </div>
     )
 }
